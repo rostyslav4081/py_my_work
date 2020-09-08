@@ -101,9 +101,6 @@ class Trip:
         self.price = price
         self.time = time
         self.name_passenger = name_passenger
-        self.__data = {"name":name_passenger, "time":time, "price":price}
-    def get_data(self):
-        return self.__data
     def __str__(self):
         return str(self.__dict__)
 
@@ -113,4 +110,34 @@ class Plane(Trip):
     def __init__(self, price, time, name_passenger, time_registration):
         super().__init__(price, time, name_passenger)
         self.time_registation = time_registration
+class Train(Trip):
+    def __init__(self, price, time, name_passenger):
+        super().__init__(price, time, name_passenger)
+
+class Car(Trip):
+    def __init__(self, price, time, name_passenger,p ,price_petrol, km):
+        super().__init__(price, time, name_passenger)
+        self.p = p
+        self.price_petrol = price_petrol
+        self.km = km
+import random
+while True:
+    print("1.Машина:")
+    print("2.Літак:")
+    print("3.Поїзд:")
+    print("4.Вихід")
+    choice = int(input("Оберіть свій варіант) Чим хочете скористатися для доправи до міста?"))
+    if choice == 1:
+         name = input("Ведіть своє ім'я:")
+         price_car = random.randint(50,101)
+         p_car =int(input("Ведіть кількість людей , включаючи Вас"))
+         time = random.randint(3,10)
+         petrol = random.randint(40,50)
+         km = random.randint(300,400)
+         car = Car(price_car, time, name, p_car, petrol,km)
+         #print(car)
+    # elif choice == 2:
+
+
+    # elif choice == 3:
 
